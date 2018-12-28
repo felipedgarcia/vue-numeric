@@ -9,10 +9,14 @@
     v-model="amount"
     v-if="!readOnly"
   >
-  <span
+  <input
     v-else
     ref="readOnly"
-  >{{ amount }}</span>
+    type="tel"
+    v-model="amount"
+    :class="cssClass"
+    readonly="readonly"
+  >
 </template>
 
 <script>
@@ -22,6 +26,15 @@ export default {
   name: 'VueNumeric',
 
   props: {
+    /**
+     * CSS Classes.
+     */
+     cssClass: {
+      type: String,
+      default: '',
+      required: false
+    },
+
     /**
      * Currency symbol.
      */
