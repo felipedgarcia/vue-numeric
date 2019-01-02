@@ -11,10 +11,8 @@
   >
   <input
     v-else
-    ref="readOnly"
     type="tel"
     v-model="amount"
-    :class="cssClass"
     readonly="readonly"
   >
 </template>
@@ -26,15 +24,6 @@ export default {
   name: 'VueNumeric',
 
   props: {
-    /**
-     * CSS Classes.
-     */
-     cssClass: {
-      type: String,
-      default: '',
-      required: false
-    },
-
     /**
      * Currency symbol.
      */
