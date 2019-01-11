@@ -243,7 +243,8 @@ export default {
     readOnly (newValue, oldValue) {
       if (oldValue === false && newValue === true) {
         this.$nextTick(() => {
-          this.$refs.readOnly.className = this.readOnlyClass
+          if (this.$refs && this.$refs.readOnly)
+            this.$refs.readOnly.className = this.readOnlyClass
         })
       }
     },
@@ -287,7 +288,7 @@ export default {
     }
 
     // Set read-only span element's class
-    if (this.readOnly) this.$refs.readOnly.className = this.readOnlyClass
+    if (this.readOnly && this.$refs && this.$refs.readOnly) this.$refs.readOnly.className = this.readOnlyClass
   },
 
   methods: {
